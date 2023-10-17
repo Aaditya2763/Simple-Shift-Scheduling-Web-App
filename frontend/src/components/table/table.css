@@ -1,0 +1,62 @@
+
+.operations{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    
+}
+.button-danger{
+    margin-right: 5px;
+    cursor: pointer;
+    color: red;
+    background-color: white;
+    border-radius: 5px;
+    border:1px solid red
+}
+.button-danger:hover{
+    background-color: red;
+    color: white;
+}
+
+.button-success{
+    margin-right: 5px;
+    cursor: pointer;
+    color: green;
+    background-color: white;
+    border-radius: 5px;
+    border:1px solid green
+}
+.button-success:hover{
+    background-color: green;
+    color:white
+}
+@media screen and (max-width: 850px){
+    .table{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        
+        overflow-x: scroll;
+    }
+    .operations{
+        flex-direction: column;
+    }
+    .button-danger{
+        margin-top: 5px;
+    }
+    .tableHeading{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .tablebody{
+        display: flex;
+        flex-direction: row;
+    }
+    .tableitem{
+        display: flex;
+       
+        flex-direction: column;
+        text-align: center;
+    }
+}
