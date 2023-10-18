@@ -40,10 +40,10 @@ const Navbar = () => {
           <div>
             <ul className={`navlinks ${toggleMenu ? '' : 'hidenavbar'}`} onClick={blurHandler}>
               <li className={activeDashboard ? 'activeLink' : ''} onClick={dashboardStyleHandler}>
-                <Link to="/dashboard" className='link'>Dashboard</Link>
+                <Link to="/" className='link'>Dashboard</Link>
               </li>
               <li className={addShift ? 'activeLink' : ''} onClick={shiftStyleHandler}>
-                <Link  to="/addShift" className='link'>Add Shift</Link>
+                <Link  to="/add-shift" className='link'>Add Shift</Link>
               </li>
             </ul>
             <button onClick={toggleMenuHandler} className="menubar" style={{ fontSize: '25px', color: '#ec655f' }}>

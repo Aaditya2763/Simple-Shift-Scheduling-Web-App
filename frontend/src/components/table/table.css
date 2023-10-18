@@ -30,6 +30,15 @@
     background-color: green;
     color:white
 }
+.updateBtn{
+    color: green;
+    text-decoration: none;
+}
+.updateBtn:hover{
+    color: white;
+    text-decoration: none;
+  
+}
 @media screen and (max-width: 850px){
     .table{
         width: 100%;

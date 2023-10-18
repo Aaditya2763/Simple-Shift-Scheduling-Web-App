@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./table.css";
 
 const Table = () => {
@@ -19,19 +20,6 @@ const Table = () => {
           </tr>
         </thead>
         <tbody className="tablebody">
-        <tr className="tableitem">
-            <th scope="row">1</th>
-            <td>Aaditya</td>
-            <td>14-12-11</td>
-            <td>Morning</td>
-            <td>10pm</td>
-            <td>12pm</td>
-            <td className="operations">
-              <button className="button-success">update</button>
-              <button className="button-danger">Delete</button>
-            </td>
-          </tr>
-         
           <tr className="tableitem">
             <th scope="row">1</th>
             <td>Aaditya</td>
@@ -40,18 +28,12 @@ const Table = () => {
             <td>10pm</td>
             <td>12pm</td>
             <td className="operations">
-              <button className="button-success">update</button>
-              <button className="button-danger">Delete</button>
-            </td>
-          </tr> <tr className="tableitem">
-            <th scope="row">1</th>
-            <td>Aaditya</td>
-            <td>14-12-11</td>
-            <td>Morning</td>
-            <td>10pm</td>
-            <td>12pm</td>
-            <td className="operations">
-              <button className="button-success">Update</button>
+              <button className="button-success">
+                {" "}
+                <Link to="/update-shift" className="updateBtn">
+                  Update
+                </Link>
+              </button>{" "}
               <button className="button-danger">Delete</button>
             </td>
           </tr>
@@ -63,7 +45,29 @@ const Table = () => {
             <td>10pm</td>
             <td>12pm</td>
             <td className="operations">
-              <button className="button-success">update</button>
+              <button className="button-success">
+                {" "}
+                <Link to="/update-shift" className="updateBtn">
+                  Update
+                </Link>
+              </button>{" "}
+              <button className="button-danger">Delete</button>
+            </td>
+          </tr>{" "}
+          <tr className="tableitem">
+            <th scope="row">1</th>
+            <td>Aaditya</td>
+            <td>14-12-11</td>
+            <td>Morning</td>
+            <td>10pm</td>
+            <td>12pm</td>
+            <td className="operations">
+              <button className="button-success">
+                {" "}
+                <Link to="/update-shift" className="updateBtn">
+                  Update
+                </Link>
+              </button>{" "}
               <button className="button-danger">Delete</button>
             </td>
           </tr>
@@ -75,7 +79,29 @@ const Table = () => {
             <td>10pm</td>
             <td>12pm</td>
             <td className="operations">
-              <button className="button-success">Update</button>
+              <button className="button-success">
+                {" "}
+                <Link to="/update-shift" className="updateBtn">
+                  Update
+                </Link>
+              </button>{" "}
+              <button className="button-danger">Delete</button>
+            </td>
+          </tr>
+          <tr className="tableitem">
+            <th scope="row">1</th>
+            <td>Aaditya</td>
+            <td>14-12-11</td>
+            <td>Morning</td>
+            <td>10pm</td>
+            <td>12pm</td>
+            <td className="operations">
+              <button className="button-success">
+                {" "}
+                <Link to="/update-shift" className="updateBtn">
+                  Update
+                </Link>
+              </button>
               <button className="button-danger">Delete</button>
             </td>
           </tr>
