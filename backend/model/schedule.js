@@ -3,19 +3,23 @@ const mongoose = require("mongoose");
 const scheduleSchema = new mongoose.Schema({
   name: {
     type: String,
-  },
-  email: {
-    type: String,
+    required: true, // You can make the 'name' field required if needed
   },
   date: {
     type: Date,
+    required: true,
   },
-  start_time: {
-    type: Date,
+  shift:{
+    type: String,
+   
   },
-
-  end_time: {
-    type: Date,
+  startTime:{
+    type: String, // Using String to store time in "HH:MM" format
+    
+  },
+  endTime:{
+    type: String,
+    
   },
 });
 

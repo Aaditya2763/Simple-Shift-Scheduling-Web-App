@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import './addShift.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const AddShift = () => {
   const [name, setName] = useState('');
@@ -7,33 +9,51 @@ const AddShift = () => {
   const [shift, setShift] = useState('Morning');
   const [startTime, setStartTime] = useState('10:00');
   const [endTime, setEndTime] = useState('10:00');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
- 
+  const createData = async (data) => {
+    setLoading(true);
+    try {
+      const response = await axios.post('http://localhost:5000/schedule/create-shift', data);
+      if (!response) {
+        setError('Try again');
+      } else {
+        navigate('/');
+      }
+    } catch (err) {
+      setError(err.message);
+    }
+    setLoading(false);
+  };
+
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    if(name.length<3){
-     alert("Please enter a valid data");
-     return;
+    if (name.length < 3) {
+      alert('Please enter a valid name');
+      return;
     }
-    setName("");
-    setDate("")
-    setStartTime("");
-    setEndTime("");
-    setShift("morning")
-    // You can access the form values from the state variables here (name, date, shift, startTime, endTime).
-    console.log(name, date, shift, startTime, endTime);
+    const formData = {
+      name,
+      date,
+      shift,
+      startTime,
+      endTime,
+    };
+    createData(formData);
   };
 
   return (
-    <form class="row g-3 needs-validation "  className="formBox" onSubmit={formSubmitHandler}  >
+    <form className="row g-3 needs-validation formBox" onSubmit={formSubmitHandler}>
       <h1 className="heading">Add New Shift</h1>
-      <div class="mb-3">
-        <label htmlFor="exampleFormControlInput1" class="form-label">
+      <div className="mb-3">
+        <label htmlFor="exampleFormControlInput1" className="form-label">
           Enter Your Name
         </label>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           id="exampleFormControlInput1"
           placeholder="Enter your name"
           required
@@ -41,15 +61,15 @@ const AddShift = () => {
           onChange={(e) => setName(e.target.value)}
         />
       </div>
-      <div class="p-2">
-        <div class="mb-3 d-flex justify-content-between">
+      <div className="p-2">
+        <div className="mb-3 d-flex justify-content-between">
           <div>
-            <label htmlFor="date" class="form-label">
+            <label htmlFor="date" className="form-label">
               Date
             </label>
             <input
               type="date"
-              class="form-control"
+              className="form-control"
               id="date"
               required
               value={date}
@@ -57,27 +77,32 @@ const AddShift = () => {
             />
           </div>
           <div>
-            <label htmlFor="shift" class="form-label text-center">
+            <label htmlFor="shift" className="form-label text-center">
               Shift
             </label>
             <div>
-            <select class="form-select" aria-label="Default select example">
-  <option selected>Select shift</option>
-  <option value="1">Morning</option>
-  <option value="2">Evening</option>
-  <option value="3">Night</option>
-</select>
+              <select
+                className="form-select"
+                aria-label="Default select example"
+                required
+                value={shift}
+                onChange={(e) => setShift(e.target.value)}
+              >
+                <option value="Morning">Morning</option>
+                <option value="Evening">Evening</option>
+                <option value="Night">Night</option>
+              </select>
             </div>
           </div>
         </div>
-        <div class="mb-3 d-flex justify-content-between">
+        <div className="mb-3 d-flex justify-content-between">
           <div>
-            <label htmlFor="startTime" class="form-label">
+            <label htmlFor="startTime" className="form-label">
               Shift Start Time
             </label>
             <input
               type="time"
-              class="form-control"
+              className="form-control"
               id="startTime"
               required
               value={startTime}
@@ -85,12 +110,12 @@ const AddShift = () => {
             />
           </div>
           <div>
-            <label htmlFor="endTime" class="form-label">
+            <label htmlFor="endTime" className="form-label">
               Shift End Time
             </label>
             <input
               type="time"
-              class="form-control"
+              className="form-control"
               id="endTime"
               required
               value={endTime}
@@ -99,9 +124,11 @@ const AddShift = () => {
           </div>
         </div>
       </div>
-      <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-success" type="submit">
-          Submit 
+      <div className="d-grid gap-2 col-6 mx-auto">
+        <button className="btn btn-success" type="submit">
+          {loading && <Fragment className="loading">Loading...</Fragment>}
+          {error && <Fragment className="loading">Try Again</Fragment>}
+     {!loading && !error && <Fragment>Submit</Fragment>}
         </button>
       </div>
     </form>

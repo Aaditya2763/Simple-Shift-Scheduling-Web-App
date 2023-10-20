@@ -1,10 +1,37 @@
-
+.title{
+    background-image: linear-gradient(to right, #ff0404, #b0a1fd);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    text-align: center;
+    padding-top: 30px;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
+}
+.table{
+    width: 100%;
+   
+border-bottom: 1px solid rgb(130, 27, 204);
+    overflow-x: scroll;
+    margin-top: 50px;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
+         border: 1px solid rgb(110, 3, 250);
+         border-radius: 20px;
+}
 .operations{
     display: flex;
     flex-direction: row;
     width: auto;
+   
+   justify-content: center;
     
 }
+.tableHeading{
+    
+}
+
 .button-danger{
     margin-right: 5px;
     cursor: pointer;
@@ -17,9 +44,15 @@
     background-color: red;
     color: white;
 }
-
+.loading{
+    margin: 100px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
 .button-success{
     margin-right: 5px;
+    width: 98%;
     cursor: pointer;
     color: green;
     background-color: white;
@@ -44,7 +77,7 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        
+    border-bottom: 1px solid rgb(130, 27, 204);
         overflow-x: scroll;
     }
     .operations{
@@ -56,11 +89,12 @@
     .tableHeading{
         display: flex;
         flex-direction: column;
-
+       
     }
     .tablebody{
         display: flex;
         flex-direction: row;
+        border-left: 2px solid black;
     }
     .tableitem{
         display: flex;
