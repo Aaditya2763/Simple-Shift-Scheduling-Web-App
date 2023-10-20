@@ -20,7 +20,7 @@ const Table = () => {
 
   const fetchTableData = async () => {
     try {
-      const response = await axios.get("https://internship-backend-dbrt.onrender.com/schedule"); // Use axios.get to make a GET request
+      const response = await axios.get("http://localhost:5000/schedule"); // Use axios.get to make a GET request
       setData(response.data); // Access the data property from the response
       setLoading(false);
       setError(false)
@@ -42,13 +42,13 @@ const Table = () => {
 
       alert("Are You sure You wanted to delete it")
 
-      await axios.delete(`https://internship-backend-dbrt.onrender.com/shift/delete/${id}`); // Use axios.get to make a GET request
+      await axios.delete(`http://localhost:5000/shift/delete/${id}`); // Use axios.get to make a GET request
       // Access the data property from the response
       setLoading(false);
       setMessage("Shift deleted Successfully ");
       setTimeout(()=>{
         setMessage("")
-      },1000)
+      },2000)
       setData((prevData) => prevData.filter((item) => item._id !== id));
     } catch (err) {
       setError("Try Again");

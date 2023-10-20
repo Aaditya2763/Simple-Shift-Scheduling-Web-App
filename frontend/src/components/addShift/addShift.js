@@ -17,7 +17,7 @@ const AddShift = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://internship-backend-dbrt.onrender.com/create-shift",
+        "http://localhost:5000/schedule/create-shift",
         data
       );
       if (!response) {
