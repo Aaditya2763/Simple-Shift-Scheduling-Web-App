@@ -24,7 +24,7 @@ mongoose
     console.log("err");
   });
 const corsOptions = {
-  origin: ["http://localhost:3000"], // Replace with your frontend URL
+  origin: ["http://localhost:3000","https://simple-shift-scheduling-web-app.vercel.app"], // Replace with your frontend URL
 };
 
 app.use(cors(corsOptions));
