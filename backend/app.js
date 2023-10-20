@@ -9,7 +9,7 @@ const app = express();
 const scheduleRoutes = require("./routes/scheduleRoutes");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const cors=require('cors')
+const cors = require("cors");
 
 // Define the database URL using an environment variable or a default value
 const db_Url = process.env.DB_URL || "mongodb://localhost:27017/InternProject";
@@ -23,11 +23,11 @@ mongoose
   .catch((err) => {
     console.log("err");
   });
-  const corsOptions = {
-    origin: ["http://localhost:3000"], // Replace with your frontend URL
-  };
-  
-  app.use(cors(corsOptions));
+const corsOptions = {
+  origin: ["http://localhost:3000"], // Replace with your frontend URL
+};
+
+app.use(cors(corsOptions));
 // Use Express middlewares
 app.use(express.json()); // Parse JSON request bodies
 app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded request bodies

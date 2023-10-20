@@ -40,6 +40,7 @@ const UpdateShift = () => {
         setLoading(false)
         navigate('/')
       }
+      setDate(response.data)
       setLoading(false)
       navigate('/')
       console.log(response);

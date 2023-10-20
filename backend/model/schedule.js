@@ -9,17 +9,14 @@ const scheduleSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  shift:{
+  shift: {
     type: String,
-   
   },
-  startTime:{
+  startTime: {
     type: String, // Using String to store time in "HH:MM" format
-    
   },
-  endTime:{
+  endTime: {
     type: String,
-    
   },
 });
 

@@ -1,26 +1,29 @@
-import React, { Fragment, useState } from 'react';
-import './addShift.css';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { Fragment, useState } from "react";
+import "./addShift.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddShift = () => {
-  const [name, setName] = useState('');
-  const [date, setDate] = useState('');
-  const [shift, setShift] = useState('Morning');
-  const [startTime, setStartTime] = useState('10:00');
-  const [endTime, setEndTime] = useState('10:00');
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
+  const [shift, setShift] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const createData = async (data) => {
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/schedule/create-shift', data);
+      const response = await axios.post(
+        "http://localhost:5000/schedule/create-shift",
+        data
+      );
       if (!response) {
-        setError('Try again');
+        setError("Try again");
       } else {
-        navigate('/');
+        navigate("/");
       }
     } catch (err) {
       setError(err.message);
@@ -31,7 +34,7 @@ const AddShift = () => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     if (name.length < 3) {
-      alert('Please enter a valid name');
+      alert("Please enter a valid name");
       return;
     }
     const formData = {
@@ -45,7 +48,10 @@ const AddShift = () => {
   };
 
   return (
-    <form className="row g-3 needs-validation formBox" onSubmit={formSubmitHandler}>
+    <form
+      className="row g-3 needs-validation formBox"
+      onSubmit={formSubmitHandler}
+    >
       <h1 className="heading">Add New Shift</h1>
       <div className="mb-3">
         <label htmlFor="exampleFormControlInput1" className="form-label">
@@ -126,9 +132,9 @@ const AddShift = () => {
       </div>
       <div className="d-grid gap-2 col-6 mx-auto">
         <button className="btn btn-success" type="submit">
-          {loading && <Fragment className="loading">Loading...</Fragment>}
-          {error && <Fragment className="loading">Try Again</Fragment>}
-     {!loading && !error && <Fragment>Submit</Fragment>}
+          {loading && <Fragment>Loading...</Fragment>}
+          {error && <Fragment>Try Again</Fragment>}
+          {!loading && !error && <Fragment>Submit</Fragment>}
         </button>
       </div>
     </form>

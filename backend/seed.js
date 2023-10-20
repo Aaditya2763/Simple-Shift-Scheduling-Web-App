@@ -3,13 +3,13 @@ const Schedule = require("./model/schedule");
 
 // Sample data to be inserted into the database
 const Dummy_Schedule = [
-  {
-    name: "Aaditya",
-    date: Date.now(),
-    email: "singhaditya2233@gmail.com",
-    start_time: Date.now(),
-    end_time: Date.now(),
-  },
+  // {
+  //   name: "Aaditya",
+  //   date: Date.now(),
+  //   shift: "Morning",
+  //   start_time: "10:20",
+  //   end_time:"22:00",
+  // },
 ];
 
 // Function to seed the database with sample data
